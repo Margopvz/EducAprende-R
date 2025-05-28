@@ -1,0 +1,18 @@
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import Footer from './components/Footer/Footer.jsx'
+import Index from './components/Index.jsx'
+import NavBar from './components/NavBar/NavBar.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <div className='bodyContent' >
+      <NavBar/>
+      <Index/>
+      <Footer/>
+    </div>
+    
+  </StrictMode>,
+)
