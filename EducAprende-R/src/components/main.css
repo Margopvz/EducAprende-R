@@ -1,0 +1,60 @@
+.aboutUs {
+    padding-inline-start: 8px;
+    width: 100%; /* Ajusta según lo que necesites */
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 95%;
+    margin-bottom: 1rem;
+}
+
+.aboutUs .index-img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+    @media (max-width: 768px) {
+.aboutUs p{
+    font-size: 0.8rem;
+}
+
+.jugando-txt {
+font-family: "Coiny", system-ui;
+font-weight: 400;
+font-style: normal;
+font-size: 3rem;
+}
+
+.se-txt {
+font-family: "Coiny", system-ui;
+font-weight: 400;
+font-style: normal;
+font-size: 2rem;
+}
+
+.aprendiendo-txt {
+font-family: "Coiny", system-ui;
+font-weight: 400;
+font-style: normal;
+font-size: 2.5rem;
+}
+
+.gana-txt{
+font-family: "Coiny", system-ui;
+font-weight: 400;
+font-style: normal;
+font-size: 3rem;
+
+}
+
+.text-header{
+margin-top: 2rem;
+}
+}
+h1 {
+font-family: "Coiny", system-ui;
+font-weight: 400;
+font-style: normal;
+}
