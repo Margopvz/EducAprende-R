@@ -1,0 +1,26 @@
+.container-fluid.aboutUs {
+    padding-inline-start: 8px;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-weight: bold;
+    width: 95%;
+    margin-bottom: 1rem;
+}
+
+.aboutUs .index-img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+
+@media (max-width: 768px) {
+.aboutUs p{
+    font-size: 0.8rem;
+}
+
+}
+

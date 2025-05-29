@@ -1,0 +1,25 @@
+
+.diferenciadores{
+background-color: #81F0EF;
+
+}
+
+.diferenciadores .container{
+width: 65%;
+}
+
+.diferenciadores p{
+background-color: #ffca2c;
+font-size: 1rem;
+font-weight: bold;
+margin: 15px;
+border-radius: 10px;
+padding: 10px;
+}
+
+.diferenciadores p:hover{
+background-color: #7a56d0;
+transition: ease-in-out 0.3s;
+scale: 1.05;
+
+}

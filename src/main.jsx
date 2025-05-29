@@ -1,10 +1,20 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import Footer from './components/Footer/Footer.jsx'
+import Index from './components/Index/Index.jsx'
+import NavBar from './components/NavBar/NavBar.jsx'
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
-import App from './App.jsx'
+//import {RouterProvider} from 'react-router-dom'
+//import { router } from './routes.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <App />
+    <div className='bodyContent' >
+      <NavBar/>
+      <Index/>
+      <Footer/>
+    </div>
+    
   </StrictMode>,
 )
