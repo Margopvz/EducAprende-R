@@ -32,6 +32,10 @@
     transform: scale(1.2);
     color: #ffffff;
 }
+
+.nav-link:focus{
+    color: #ffffff;
+}
 .user-icon {
     font-size: 2rem;
     color: white;

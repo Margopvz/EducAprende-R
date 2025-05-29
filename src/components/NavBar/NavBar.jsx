@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import './Navbar.css';
-import '@fontsource/coiny'; 
-import { initNavbarBehavior } from './Navbar';
+import { Link } from "react-router";
+import { initNavbarBehavior } from './Navbar.js';
 
 const Navbar = () => {
     useEffect(() => {
@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="container-fluid">
             <a className="navbar-brand d-flex align-items-center" href="#">
                 <div className="brand-box">
-                    <span>Educ</span><span style={{ color: '#ffffff' }}>Aprende</span>
+                    <Link to={`/`} className='text-decoration-none'><span> Educ</span><span style={{ color: '#ffffff' }}>Aprende</span></Link>
                 </div>
             </a>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -26,7 +26,7 @@ const Navbar = () => {
                     <a className="nav-link" href="categorias.html">Categorías</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="juegos.html">Juegos</a>
+                    <Link to={`/juegos/timelgame`} className="nav-link">TimeLGame</Link>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link" href="about.html">Nosotros</a>

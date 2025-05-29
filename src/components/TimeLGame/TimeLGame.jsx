@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './TimeLGame.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import confetti from 'canvas-confetti';
 import { timelinePairs } from '../../Data/timelineData'; 
 import correctMP3 from '../../assets/sounds/correct.mp3';
