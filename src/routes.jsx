@@ -13,6 +13,7 @@ export const router = createBrowserRouter(
         <Route path="/" element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/categorias" element={<Categories />} />
+            <Route path="/categorias/:asignatura" element={<TimeLGame />} />
             <Route path="/juegos/timelgame" element={<TimeLGame />} />
         </Route>
     )

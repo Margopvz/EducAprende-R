@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router";
 import './Categories.css'
 
 const Categories = () => {
@@ -15,12 +16,14 @@ const Categories = () => {
         <div className="row row-cols-2 mt-2 row-cols-lg-3 text-center gx-lg-4">
             {categorias.map((category)=>
             (<div className="col">
+                <Link to={`/categorias/${category.class}`} className="card-title text-decoration-none">
                 <div className={`card mycard ${category.class}`}>
                     <img src={`./src/assets/img/${category.img_name}`} className="card-img-top mx-auto" alt="..."/>
                     <div className="card-body">
                         <h5 className="card-title">{category.nombre}</h5>
                     </div>
                 </div>
+                </Link>
             </div>)
             )}
         </div>
