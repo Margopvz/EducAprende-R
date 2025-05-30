@@ -1,0 +1,57 @@
+.game-grid {
+  display: inline-block;
+  background-color: #7a56d0;
+  padding: 10px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.text-box {
+  width: 60px;
+  height: 60px;
+  background-color: #f1f3f5;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 60px;
+  user-select: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.text-box:hover {
+  transform: scale(1.05);
+  background-color: #e0f0ff;
+  border-color: #4dabf7;
+}
+
+/* colores en el juego */
+.text-box.correct {
+  background-color: #6aaa64; /* verde Wordle */
+  border-color: #6aaa64;
+  color: white;
+}
+
+.text-box.present {
+  background-color: #c9b458; /* amarillo Wordle */
+  border-color: #c9b458;
+  color: white;
+}
+
+.text-box.absent {
+  background-color: #787c7e; /* gris Wordle */
+  border-color: #787c7e;
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .text-box {
+    width: 44px;
+    height: 44px;
+    font-size: 18px;
+    line-height: 44px;
+  }
+}
