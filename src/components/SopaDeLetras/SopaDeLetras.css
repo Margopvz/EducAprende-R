@@ -1,0 +1,238 @@
+/* Contenedor principal */
+.sopa-de-letras-container {
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+/* Título */
+.titulo {
+  margin: 20px 0 30px;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  width: 100%;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.titulo::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+}
+
+/* Contenido del juego en dos columnas */
+.contenido-juego {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 20px 0;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+/* Tabla de juego */
+.sopa-container {
+  flex: 1;
+  min-width: 400px;
+  max-width: 600px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+.sopa-container:hover {
+  transform: translateY(-5px);
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 2px;
+  margin: 0 auto;
+  background-color: transparent;
+}
+
+td {
+  border: 2px solid #e0e0e0;
+  width: 45px;
+  height: 45px;
+  text-align: center;
+  font-size: 24px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  position: relative;
+  user-select: none;
+  border-radius: 5px;
+  background-color: white;
+  color: #34495e;
+}
+
+td:hover {
+  background-color: #e8f4f8;
+  transform: scale(1.1);
+  z-index: 2;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Estados de las celdas */
+.celda.selected {
+  background-color: #fffacd !important;
+  box-shadow: 0 0 15px rgba(255,235,59,0.7);
+  border-color: #ffd700;
+  transform: scale(1.05);
+}
+
+.celda.correct {
+  background-color: #c8e6c9 !important;
+  color: #2e7d32;
+  border-color: #81c784;
+  animation: pulse 0.5s;
+}
+
+/* Panel derecho */
+.panel-derecho {
+  flex: 0 0 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Contenedor de pistas */
+.pistas-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+.pistas-container:hover {
+  transform: translateY(-5px);
+}
+
+.pistas-container h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.pistas-container h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+}
+
+/* Contenedor de palabras encontradas */
+.encontradas-container {
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 25px;
+  transition: transform 0.3s ease;
+}
+
+.encontradas-container:hover {
+  transform: translateY(-5px);
+}
+
+.encontradas-container h3 {
+  color: #2c3e50;
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.encontradas-container h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+}
+
+/* Listas de palabras */
+.palabras-lista {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.palabra-item {
+  padding: 12px 20px;
+  background-color: #f8f9fa;
+  border-radius: 25px;
+  font-weight: bold;
+  color: #34495e;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.palabra-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  background-color: #e9ecef;
+}
+
+.palabra-item.encontrada {
+  background-color: #c8e6c9;
+  color: #2e7d32;
+  text-decoration: line-through;
+  opacity: 0.9;
+}
+
+/* Pista actual */
+.pista-actual {
+  margin-top: 15px;
+  padding: 15px;
+  background-color: #e3f2fd;
+  border-radius: 10px;
+  font-style: italic;
+  color: #0d47a1;
+  font-size: 0.95rem;
+  border-left: 4px solid #2196f3;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Mensajes */
+.mensaje-exito, .mensaje-error {
+  min-height: 40px;
+}
+
