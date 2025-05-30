@@ -23,7 +23,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav align-items-center">
                 <li className="nav-item">
-                    <a className="nav-link" href="categorias.html">Categorías</a>
+                    <Link to={`/categorias`} className="nav-link">Categorías</Link>
                 </li>
                 <li className="nav-item">
                     <Link to={`/juegos/timelgame`} className="nav-link">TimeLGame</Link>
