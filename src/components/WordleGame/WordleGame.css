@@ -1,6 +1,10 @@
+.myWordle{
+  background-color: #7a56d0;
+}
+
 .game-grid {
   display: inline-block;
-  background-color: #7a56d0;
+  background-color: #bbc0c5;
   padding: 10px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -11,6 +15,7 @@
   height: 60px;
   background-color: #f1f3f5;
   border: 2px solid #ced4da;
+  color: rgba(54, 54, 54, 0.71);
   border-radius: 6px;
   text-align: center;
   vertical-align: middle;

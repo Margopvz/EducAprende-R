@@ -58,7 +58,7 @@ const Game = () => {
 
   return (
     <div
-      className="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100"
+      className="container-fluid myWordle d-flex flex-column justify-content-center align-items-center min-vh-100"
       tabIndex={0}
       onKeyDown={handleKeyDown}
       ref={inputRef}
