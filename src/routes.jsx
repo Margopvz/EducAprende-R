@@ -2,7 +2,9 @@ import { createBrowserRouter, createRoutesFromElements, Route } from 'react-rout
 import TimeLGame from './components/TimeLGame/TimeLGame.jsx'
 import Index from './pages/Index.jsx'
 import Categories from './pages/Categories.jsx'
+import CategoryRouter from './components/CategoryRouter.jsx'
 import Layout from './pages/Layout.jsx'
+
 // en la constante router queda defino el enrutador
 // crea el entutador
 export const router = createBrowserRouter(
@@ -13,7 +15,7 @@ export const router = createBrowserRouter(
         <Route path="/" element={<Layout />}>
             <Route path="/" element={<Index />} />
             <Route path="/categorias" element={<Categories />} />
-            <Route path="/categorias/:asignatura" element={<TimeLGame />} />
+            <Route path="/categorias/:asignatura" element={<CategoryRouter />} />
             <Route path="/juegos/timelgame" element={<TimeLGame />} />
         </Route>
     )
