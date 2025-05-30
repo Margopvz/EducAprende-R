@@ -29,7 +29,7 @@ const Navbar = () => {
                     <Link to={`/juegos/timelgame`} className="nav-link">TimeLGame</Link>
                 </li>
                 <li className="nav-item">
-                    <Link to={`/about`} className="nav-link">About</Link>
+                    <Link to={`/about`} className="nav-link">Nosotros</Link>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link user-icon" href="#">
