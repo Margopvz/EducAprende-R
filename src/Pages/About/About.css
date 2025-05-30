@@ -1,0 +1,66 @@
+.developers-container {
+  
+  display: flex;
+  justify-content: start;
+  padding-top: 50px;
+  overflow: hidden;
+  position: relative;
+  
+}
+/* desde los 992 pixeles, la clase .developers-container se le aplica un align-self: center*/
+@media (min-width: 992px) {
+  .developers-container {
+    align-self: center;
+  }
+}
+
+/* container */
+.developer-person {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+/* positions */
+.fernanda{
+  
+  z-index: 1;
+  
+}
+.diego{
+
+  z-index: 2; 
+}
+.gonzalo{
+  z-index: 3;
+}
+.felipe{
+  
+  z-index: 2;
+}
+.margarita{
+  
+  z-index: 1;
+}
+
+.developer-img {
+  width: 200%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.developer-person.hovered {
+  transform: scale(1.15);
+  z-index: 4;
+}
+
+.developers-hover .developer-person:not(.hovered) {
+  filter: grayscale(100%) blur(3px);
+}
+
+.info-developers{
+  background-color: #e5b8ee ; 
+  border-radius: 30px;
+
+}
+
+.developer-box{
+  width: 100%;
+}
