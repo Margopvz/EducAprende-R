@@ -12,11 +12,11 @@ const Navbar = () => {
     <>
     <nav className="navbar coiny-title navbar-expand-lg navbar-custom">
         <div className="container-fluid">
-            <a className="navbar-brand d-flex align-items-center" href="#">
+            <div className="navbar-brand d-flex align-items-center">
                 <div className="brand-box">
                     <Link to={`/`} className='text-decoration-none'><span> Educ</span><span style={{ color: '#ffffff' }}>Aprende</span></Link>
                 </div>
-            </a>
+            </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span className="navbar-toggler-icon"></span>
             </button>
