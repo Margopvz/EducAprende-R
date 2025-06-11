@@ -1,0 +1,41 @@
+.math-container {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  background-color: #7a56d0;
+  padding: 2rem;
+  border-radius: 12px;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.math-container h2{
+  color: white;
+  text-shadow: black;
+}
+
+.expression {
+  font-size: 2rem;
+  margin: 20px 0;
+}
+
+input {
+  padding: 10px;
+  font-size: 1.2rem;
+  width: 100px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  margin-left: 10px;
+  background-color: #f4b740;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.timer, .score {
+  margin: 15px 0;
+  font-size: 1.2rem;
+}
