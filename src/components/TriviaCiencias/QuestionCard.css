@@ -1,0 +1,38 @@
+.card {
+  width: 100%;
+  max-width: none;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+.pregunta {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+  text-align: center;
+}
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.boton {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;  
+  width: auto;          /* 👈 no ocupar todo el ancho */
+  min-width: 250px;
+  max-width: 90%;       /* 👈 para que no se desborde en móviles */
+  align-self: center;   /* 👈 centrado */
+}
+
+.boton:hover {
+  background-color: #388E3C;
+}
