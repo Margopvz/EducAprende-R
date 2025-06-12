@@ -12,6 +12,7 @@ const Footer = () => {
                 <li><a className="text-decoration-none" href="categorias.html">Categorías</a></li>
                 <li><a className="text-decoration-none" href="#">Juegos</a></li>
                 <li><a className="text-decoration-none" href="#">Sobre nosotros</a></li>
+                <li><a className="text-decoration-none" href="#">Iniciar Sesión</a></li>
             </ul>
           </div>
           <div className="col">

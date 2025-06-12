@@ -4,8 +4,9 @@ import Index from './pages/Index.jsx'
 import Categories from './pages/Categories.jsx'
 import CategoryRouter from './components/CategoryRouter.jsx'
 import About from './pages/About/About.jsx'
+import Login from './Pages/Login.jsx'
 import Layout from './pages/Layout.jsx'
-import MathGame from './features/math-game/MathGame.jsx'
+
 
 // en la constante router queda defino el enrutador
 // crea el entutador
@@ -19,8 +20,8 @@ export const router = createBrowserRouter(
             <Route path="/categorias" element={<Categories />} />
             <Route path="/categorias/:asignatura" element={<CategoryRouter />} />
             <Route path="/juegos/timelgame" element={<TimeLGame />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/about" element={<About />} />
-            <Route path="/juegoMatematicas" element={<MathGame />} />
         </Route>
     )
 )
