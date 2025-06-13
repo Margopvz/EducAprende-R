@@ -7,6 +7,7 @@ import About from './pages/About/About.jsx'
 import Login from './pages/Login.jsx'
 import Register from './pages/Register.jsx'
 import Progreso from './components/Progreso/Progreso.jsx'
+import NotFound from './Pages/NotFound/NotFound.jsx'
 import Layout from './pages/Layout.jsx'
 
 
@@ -26,6 +27,7 @@ export const router = createBrowserRouter(
             <Route path="/login" element={<Login />} />
             <Route path="/registro" element={< Register />} />
             <Route path="/perfil"  element={< Progreso />} />
+            <Route path="/notfound"  element={< NotFound />} />
         </Route>
     )
 )
