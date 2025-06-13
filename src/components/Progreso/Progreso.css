@@ -1,4 +1,4 @@
-main {
+main.progreso{
   width: 70%;
   height: auto;
   margin: 4rem auto;
@@ -8,25 +8,25 @@ main {
   padding: 3rem;
 }
 
-h1 {
+.progreso h1 {
   color: #7a56d0;
   font-size: 2rem;
   margin-bottom: 1rem;
 
 }
 
-h2 {
+.progreso h2 {
   color: #7a56d0;
 
 }
-h3 {
+.progreso h3 {
   color: #7a56d0;
   text-align: center;
   margin: 30px auto;
 }
 
 
-section {
+.progreso section {
   margin-top: 3.5rem;
   padding: 1px auto;
 }
@@ -50,13 +50,13 @@ section {
   transform: scale(1.1);
 }
 
-span {
+.progreso span {
   color: #7a56d0;
 }
-p {
+.progreso p {
   color: #7a56d0;
 }
 
-.mt-8 {
+.progreso .mt-8 {
 justify-self: center;
 }

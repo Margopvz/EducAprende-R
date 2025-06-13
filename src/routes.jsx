@@ -4,7 +4,9 @@ import Index from './pages/Index.jsx'
 import Categories from './pages/Categories.jsx'
 import CategoryRouter from './components/CategoryRouter.jsx'
 import About from './pages/About/About.jsx'
-import Login from './Pages/Login.jsx'
+import Login from './pages/Login.jsx'
+import Register from './pages/Register.jsx'
+import Progreso from './components/Progreso/Progreso.jsx'
 import Layout from './pages/Layout.jsx'
 
 
@@ -20,8 +22,10 @@ export const router = createBrowserRouter(
             <Route path="/categorias" element={<Categories />} />
             <Route path="/categorias/:asignatura" element={<CategoryRouter />} />
             <Route path="/juegos/timelgame" element={<TimeLGame />} />
+            <Route path="/about" element={<About />} />     
             <Route path="/login" element={<Login />} />
-            <Route path="/about" element={<About />} />        
+            <Route path="/registro" element={< Register />} />
+            <Route path="/perfil"  element={< Progreso />} />
         </Route>
     )
 )

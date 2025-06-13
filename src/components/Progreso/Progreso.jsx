@@ -1,17 +1,55 @@
+import { useEffect, useState } from 'react';
 import  './Progreso.css'
 
 
 
 function Progreso() {
+ const [user, setUser] = useState(null);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const token = localStorage.getItem('token');
+
+      try {
+        const res = await fetch('http://localhost:3000/perfil', {
+          method: 'GET',
+          headers: {
+            'Authorization': token
+          }
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          setUser(data.data); // esto contiene id, name, email
+        } else {
+          setError(data.message || 'Error al obtener usuario');
+        }
+      } catch (err) {
+        console.error(err);
+        setError('Error de conexión');
+      }
+    };
+
+    fetchUser();
+  }, []); 
+
+  if (error) return <p className="text-danger">{error}</p>;
+
 return (
     
-<main className="shadow-lg mx-auto w-[90%] sm:max-w-xl mt-6 rounded-lg p-6 ">
-<h1 className="text-3xl font-bold text-center text-purple-700 mb-6">
-Bienvenido, Pedrito
-</h1>
+<main className="progreso shadow-lg mx-auto w-[90%] sm:max-w-xl mt-6 rounded-lg p-6 ">
+ {user ? (
+    <h1 className="text-3xl font-bold text-center text-purple-700 mb-6">
+        Bienvenid@, {user.name} 
+    </h1> )
+    : (
+    <p>Cargando usuario...</p>
+    )}
 
 {/* Logros */}
-<section>
+<section >
 <div className="flex justify-between items-center mb-2">
     <h2 className="text-xl font-bold text-purple-700">Logros</h2>
     <span className="text-gray-600 font-semibold">Progreso</span>
