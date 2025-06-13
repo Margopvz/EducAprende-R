@@ -1,6 +1,5 @@
 
 import React from 'react';
-import PropTypes from 'prop-types';
 import './QuestionCard.css';
 
 export default function QuestionCard({ pregunta, opciones, respuestaCorrecta, onSelect }) {
