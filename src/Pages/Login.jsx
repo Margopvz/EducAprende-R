@@ -39,15 +39,15 @@ const Login = () => {
 
   return (
   <>
-  <div className="container mt-4">
+  <div className="container mt-4 d-none">
       {loginError && (
         <div className="alert alert-danger" role="alert">
           {loginError}
         </div>
       )}
   </div>
-
-  <div className="login-container">
+<div className='row login-container'>
+  <div className="login-card col-11 col-lg-4 col-md-7 col-sm-9 ">
     <h2 className="login-title">Iniciar sesión</h2>
     <form onSubmit={handleSubmit(onSubmit)} className="login-form">
       <input type="text" placeholder="Nombre de usuario" 
@@ -79,6 +79,7 @@ const Login = () => {
       </div>
     </form>
   </div>
+</div>
   </>
   )
 }

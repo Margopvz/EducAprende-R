@@ -10,7 +10,7 @@ return (
                 <h4 className='aprendiendo-title'><span className="aprendiendo-txt text-center">aprendiendo</span><p className="se-txt">se <span className="gana-txt">gana</span></p></h4>
                 <button type="button" className="btn btn-warning btn-lg mt-4 mt-sm-2">Juega Ahora!</button>
             </div>
-            <div className="col">
+            <div className="col-6">
                 <img className="img-fluid index-img" src="./src/assets/img/img_hero.png" alt="EducAprende" />
             </div>
         </div>

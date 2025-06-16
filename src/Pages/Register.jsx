@@ -51,15 +51,15 @@ const Register = () => {
 
   return (
   <>
-    <div className="container mt-4">
+    <div className="container mt-4 d-none">
       {successMessage && (
         <div className="alert alert-success" role="alert">
           {successMessage}
         </div>
       )}
     </div>
-
-  <div className="register-container">
+<div className='row register-container'>
+  <div className="register-card col-11 col-lg-4 col-md-7 col-sm-9">
     <h2 className="register-title">Crear cuenta</h2>
     <form className="register-form" onSubmit={handleSubmit(onSubmit)}>
         <input type="text" id='newUser' placeholder="Nombre de usuario" 
@@ -95,6 +95,7 @@ const Register = () => {
         <button type="submit">Registrar</button>
     </form>
   </div>
+</div>
   </>
   )
   
