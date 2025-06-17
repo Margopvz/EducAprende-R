@@ -1,18 +1,21 @@
+/* File: src/pages/TriviaCiencias.css */
+
 html, body, #root {
   height: 100%;
   margin: 0;
 }
+
 .game-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #FFFAE5 0%, #FFE4B5 100%);
+  background: linear-gradient(135deg, #d0b2ff 0%, #b266ff 100%);
   min-height: 100vh;
   padding: 20px;
   box-sizing: border-box;
-  height: 100vh;
 }
+
 @media (max-width: 600px) {
   .card {
     padding: 16px;
@@ -28,6 +31,63 @@ html, body, #root {
   color: #666;
   text-align: center;
 }
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 600px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.imagen-pregunta {
+  width: 100%;
+  max-height: 200px;
+  object-fit: contain;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.opciones {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.boton {
+  background-color: #6a0dad;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.boton:hover {
+  background-color: #501a85;
+}
+
+.boton.incorrecta {
+  background-color: #d9534f !important;
+}
+
+.feedback {
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.correct-feedback {
+  color: #28a745;
+}
+
+.incorrect-feedback {
+  color: #d9534f;
+}
+
 .xp-bar-container {
   display: flex;
   align-items: center;
@@ -36,11 +96,13 @@ html, body, #root {
   max-width: 600px;
   margin-bottom: 16px;
 }
+
 .xp-label, .level-label {
   font-size: 14px;
   font-weight: bold;
-  color: #333;
+  color: #fff;
 }
+
 .xp-progress {
   flex: 1;
   height: 12px;
@@ -48,12 +110,15 @@ html, body, #root {
   border-radius: 6px;
   overflow: hidden;
 }
+
 .xp-progress::-webkit-progress-bar {
   background-color: #ddd;
 }
+
 .xp-progress::-webkit-progress-value {
-  background-color: #4CAF50;
+  background-color: #fff;
 }
+
 .score-wrapper {
   display: flex;
   flex-direction: column;
@@ -62,8 +127,8 @@ html, body, #root {
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-
 }
+
 .score-text {
   font-size: 24px;
   font-weight: bold;
@@ -71,11 +136,13 @@ html, body, #root {
   margin-bottom: 12px;
   text-align: center;
 }
+
 .xp-text, .level-text {
   font-size: 16px;
   color: #333;
   margin: 4px 0;
 }
+
 .actions {
   display: flex;
   gap: 10px;
@@ -83,19 +150,75 @@ html, body, #root {
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .boton-retry, .boton-back {
-  background-color: #4CAF50;
+  background-color: #6a0dad;
   border: none;
   border-radius: 8px;
   padding: 10px 20px;
   font-size: 14px;
   color: white;
   cursor: pointer;
-  width: auto;         /* 👈 evita que ocupen todo el ancho */
-  min-width: 120px;    /* 👈 tamaño mínimo para mantener consistencia */
-  max-width: 200px;    /* 👈 evita que se hagan gigantes en pantallas grandes */
+  min-width: 120px;
+  max-width: 200px;
 }
 
 .boton-retry:hover, .boton-back:hover {
-  background-color: #388E3C;
+  background-color: #501a85;
+}
+
+.feedback {
+  margin-top: 12px;
+  font-size: 16px;
+  padding: 12px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.feedback.correct {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.feedback.incorrect {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.boton-next {
+  margin-top: 16px;
+  background-color: #6a4baf;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.boton-next:hover {
+  background-color: #5a3f95;
+}
+
+/* Para opciones */
+.boton.correct {
+  background-color: #4caf50 !important;
+  color: white !important;
+  cursor: default;
+}
+
+.boton.incorrect {
+  background-color: #f44336 !important;
+  color: white !important;
+  cursor: default;
+}
+
+.boton.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
