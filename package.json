@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
     "bootstrap": "^5.3.6",
     "canvas-confetti": "^1.9.3",

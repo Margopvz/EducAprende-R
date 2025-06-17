@@ -1,41 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useContext} from 'react';
+import { AuthContext } from "../../context/AuthContext";
 import  './Progreso.css'
 
 
 
 function Progreso() {
- const [user, setUser] = useState(null);
-  const [error, setError] = useState('');
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      const token = localStorage.getItem('token');
-
-      try {
-        const res = await fetch('http://localhost:3000/perfil', {
-          method: 'GET',
-          headers: {
-            'Authorization': token
-          }
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          setUser(data.data); // esto contiene id, name, email
-        } else {
-          setError(data.message || 'Error al obtener usuario');
-        }
-      } catch (err) {
-        console.error(err);
-        setError('Error de conexión');
-      }
-    };
-
-    fetchUser();
-  }, []); 
-
-  if (error) return <p className="text-danger">{error}</p>;
+  const { user, logout } = useContext(AuthContext); // suscritos al contexto para acceder a los datos del usuario
+  
 
 return (
     

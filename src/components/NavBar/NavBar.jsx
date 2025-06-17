@@ -1,9 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useContext } from 'react';
 import './Navbar.css';
 import { Link } from "react-router";
+import { AuthContext } from "../../context/AuthContext";
 import { initNavbarBehavior } from './Navbar.js';
 
 const Navbar = () => {
+    const { user, logout } = useContext(AuthContext); // suscritos al contexto para acceder a los datos del usuario
+  
+
     useEffect(() => {
         initNavbarBehavior();
     }, []);
@@ -28,11 +32,22 @@ const Navbar = () => {
                 <li className="nav-item">
                     <Link to={`/about`} className="nav-link">Nosotros</Link>
                 </li>
-                <li className="nav-item">
-                <Link to="/login" className="nav-link user-icon">
-                <i className="bi bi-person-fill"></i>
-                </Link>
-                </li>
+                
+                {!user ? (
+                    
+                    <li className="nav-item">
+                        <Link to="/login" className="nav-link user-icon">
+                        <i className="bi bi-person-fill"></i></Link>
+                    </li>): 
+                    (<>
+                    <li className="nav-item">
+                        <Link to={`/perfil`} className="nav-link">Perfil</Link>
+                    </li>
+                    
+                    <li className="nav-item">
+                    <button onClick={logout} className="nav-link user-icon">
+                        <i className="fa-solid fa-user-slash"></i>
+                        </button></li></>)}
             </ul>
         </div>
         </div>

@@ -1,12 +1,12 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { AuthContext } from "../context/AuthContext";
 import { Link } from "react-router";
 import './Login.css'
 
 const Login = () => {
+  const { login } = useContext(AuthContext); // nos suscribimos al contexto
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const navigate = useNavigate();
   const [loginError, setLoginError] = useState('');
 
   const onSubmit = async (data) => {
@@ -16,24 +16,10 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      const result = await response.json();
-
-
-      if (response.ok) {
-        localStorage.setItem('token', result.token);
-        navigate('/perfil'); // Redirige al perfil
-      } else {
-        setLoginError(result.message || 'Credenciales inválidas');
-      }
+      await login(payload.email, payload.password)
     } catch (error) {
       console.error('Error de conexión', error);
-      setLoginError('Error de conexión con el servidor');
+      setLoginError(result.message || 'Credenciales inválidas');
     }
   };
 
