@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
-import  './Progreso.css'
-
-
+import './Progreso.css';
 
 function Progreso() {
- const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -14,15 +12,13 @@ function Progreso() {
       try {
         const res = await fetch('http://localhost:3000/perfil', {
           method: 'GET',
-          headers: {
-            'Authorization': token
-          }
+          headers: { 'Authorization': token }
         });
 
         const data = await res.json();
 
         if (res.ok) {
-          setUser(data.data); // esto contiene id, name, email
+          setUser(data.data);
         } else {
           setError(data.message || 'Error al obtener usuario');
         }
@@ -33,55 +29,51 @@ function Progreso() {
     };
 
     fetchUser();
-  }, []); 
+  }, []);
 
-  if (error) return <p className="text-danger">{error}</p>;
+  if (error) return <p className="text-danger text-center mt-4">{error}</p>;
 
-return (
-    
-<main className="progreso shadow-lg mx-auto w-[90%] sm:max-w-xl mt-6 rounded-lg p-6 ">
- {user ? (
-    <h1 className="text-3xl font-bold text-center text-purple-700 mb-6">
-        Bienvenid@, {user.name} 
-    </h1> )
-    : (
-    <p>Cargando usuario...</p>
-    )}
+  return (
+    <main className="progreso-container">
+      <section className="user-section">
+        <h1>Bienvenid@, {user?.name || '...'}</h1>
+      </section>
 
-{/* Logros */}
-<section >
-<div className="flex justify-between items-center mb-2">
-    <h2 className="text-xl font-bold text-purple-700">Logros</h2>
-    <span className="text-gray-600 font-semibold">Progreso</span>
-    </div>
-    <div className="w-full bg-gray-200 rounded-full h-4 mb-1">
-    <div className="bg-gradient-to-r from-blue-400 to-purple-500 h-4 rounded-full animate-progress" style={{ width: "65%" }}></div>
-    </div>
-    <p className="text-right font-bold text-gray-700">65%</p>
-</section>
+      {/* Logros */}
+      <section className="logros-section">
+        <div className="logros-header">
+          <h2>Logros</h2>
+          <span>Progreso</span>
+        </div>
+        <div className="progress-bar-bg">
+          <div className="progress-bar-fill" style={{ width: '65%' }}></div>
+        </div>
+        <p className="progress-text">65%</p>
+      </section>
 
-{/* Recompensas */}
-<section className="mt-8 rewards">
-    <h3 className="font-bold text-lg text-purple-700 mb-4 text-center">Recompensas</h3>
-    <div className="flex flex-wrap justify-center gap-6">
-    <img src="/src/assets/img/recompensa1.png" alt="Medalla" className="w-20 h-20 object-contain" />
-    <img src="/src/assets/img/recompensa2.png" alt="Estrella" className="w-20 h-20 object-contain" />
-    <img src="/src/assets/img/recompensa3.png" alt="Trofeo" className="w-20 h-20 object-contain" />
-    <img src="/src/assets/img/recompensa4.png" alt="Candado" className="w-20 h-20 object-contain" />
-    </div>
-</section>
+      {/* Recompensas */}
+      <section className="icon-section">
+        <h3>Recompensas</h3>
+        <div className="icon-grid">
+          <img src="/src/assets/img/Medallas.jpg" alt="Medalla" />
+          <img src="/src/assets/img/Moneda.jpg" alt="Moneda" />
+          <img src="/src/assets/img/Trofeo.jpg" alt="Trofeo" />
+          <img src="/src/assets/img/Candado.jpg" alt="Candado" />
+        </div>
+      </section>
 
-<section className="mt-8 badges">
-    <h3 className="font-bold text-lg text-purple-700 mb-4 text-center">Insignias</h3>
-    <div className="flex flex-wrap justify-center gap-6">
-    <img src="/src/assets/img/insignia1.png" alt="Sol" className="w-20 h-20 object-contain" />
-    <img src="/src/assets/img/insignia2.png" alt="Libro" className="w-20 h-20 object-contain" />
-    <img src="/src/assets/img/insignia3.png" alt="Bombillo" className="w-20 h-20 object-contain" />
-    <img src="/src/assets/img/insignia4.png" alt="Estrella verde" className="w-20 h-20 object-contain" />
-    </div>
-</section>
-</main>
-);
+      {/* Insignias */}
+      <section className="icon-section">
+        <h3>Insignias</h3>
+        <div className="icon-grid">
+          <img src="/src/assets/img/Sol.jpg" alt="Sol" />
+          <img src="/src/assets/img/Libro.jpg" alt="Libro" />
+          <img src="/src/assets/img/Ampolleta.jpg" alt="Ampolleta" />
+          <img src="/src/assets/img/Estrellas.jpg" alt="Estrellas" />
+        </div>
+      </section>
+    </main>
+  );
 }
 
 export default Progreso;
