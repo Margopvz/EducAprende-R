@@ -3,7 +3,7 @@ import TimeLGame from "./TimeLGame/TimeLGame";
 import WordleGame from "./WordleGame/WordleGame"
 import SopaDeLetras from "./SopaDeLetras/sopaDeLetras";
 import TriviaCiencias from "./TriviaCiencias/TriviaCiencias";
-import MathGame from '../features/math-game/MathGame';
+import MathGame from './MathGame/MathGame';
 
 const CategoryRouter = () => {
   const { asignatura } = useParams();
