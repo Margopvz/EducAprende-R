@@ -10,10 +10,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "bootstrap": "^5.3.6",
     "canvas-confetti": "^1.9.3",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-hook-form": "^7.57.0",
     "react-router": "^7.6.1",
     "react-router-dom": "^7.6.1"
   },
@@ -27,5 +29,17 @@
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
     "vite": "^6.3.5"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "main": "eslint.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Margopvz/EducAprende-R.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Margopvz/EducAprende-R/issues"
+  },
+  "homepage": "https://github.com/Margopvz/EducAprende-R#readme"
 }

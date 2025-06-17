@@ -1,0 +1,62 @@
+main.progreso{
+  width: 70%;
+  height: auto;
+  margin: 4rem auto;
+  background-color: rgb(0, 247, 226);
+  border-radius: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  padding: 3rem;
+}
+
+.progreso h1 {
+  color: #7a56d0;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+
+}
+
+.progreso h2 {
+  color: #7a56d0;
+
+}
+.progreso h3 {
+  color: #7a56d0;
+  text-align: center;
+  margin: 30px auto;
+}
+
+
+.progreso section {
+  margin-top: 3.5rem;
+  padding: 1px auto;
+}
+
+
+.rewards, .badges {
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  padding: 0 2rem;
+}
+
+.rewards img, .badges img {
+  width: 200px;
+  height: 150px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.rewards img:hover, .badges img:hover {
+  transform: scale(1.1);
+}
+
+.progreso span {
+  color: #7a56d0;
+}
+.progreso p {
+  color: #7a56d0;
+}
+
+.progreso .mt-8 {
+justify-self: center;
+}

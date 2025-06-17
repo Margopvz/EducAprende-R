@@ -13,8 +13,8 @@ const Navbar = () => {
     <nav className="navbar coiny-title navbar-expand-lg navbar-custom">
         <div className="container-fluid">
             <div className="navbar-brand d-flex align-items-center">
-                <div className="brand-box">
-                    <Link to={`/`} className='text-decoration-none'><span> Educ</span><span style={{ color: '#ffffff' }}>Aprende</span></Link>
+                <div className="brand-box ms-2">
+                    <Link to={`/`} className='text-decoration-none nav-logo'><span> EducAprende</span></Link>
                 </div>
             </div>
             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -23,18 +23,15 @@ const Navbar = () => {
         <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul className="navbar-nav align-items-center">
                 <li className="nav-item">
-                    <Link to={`/categorias`} className="nav-link">Categorías</Link>
-                </li>
-                <li className="nav-item">
-                    <Link to={`/juegos/timelgame`} className="nav-link">TimeLGame</Link>
+                    <Link to={`/categorias`} className="nav-link">Juegos</Link>
                 </li>
                 <li className="nav-item">
                     <Link to={`/about`} className="nav-link">Nosotros</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link user-icon" href="#">
+                <Link to="/login" className="nav-link user-icon">
                 <i className="bi bi-person-fill"></i>
-                    </a>
+                </Link>
                 </li>
             </ul>
         </div>

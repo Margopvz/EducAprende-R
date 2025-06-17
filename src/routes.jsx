@@ -4,7 +4,12 @@ import Index from './pages/Index.jsx'
 import Categories from './pages/Categories.jsx'
 import CategoryRouter from './components/CategoryRouter.jsx'
 import About from './pages/About/About.jsx'
+import Login from './pages/Login.jsx'
+import Register from './pages/Register.jsx'
+import Progreso from './components/Progreso/Progreso.jsx'
+import NotFound from './Pages/NotFound/NotFound.jsx'
 import Layout from './pages/Layout.jsx'
+
 
 // en la constante router queda defino el enrutador
 // crea el entutador
@@ -18,7 +23,11 @@ export const router = createBrowserRouter(
             <Route path="/categorias" element={<Categories />} />
             <Route path="/categorias/:asignatura" element={<CategoryRouter />} />
             <Route path="/juegos/timelgame" element={<TimeLGame />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/about" element={<About />} />     
+            <Route path="/login" element={<Login />} />
+            <Route path="/registro" element={< Register />} />
+            <Route path="/perfil"  element={< Progreso />} />
+            <Route path="/notfound"  element={< NotFound />} />
         </Route>
     )
 )
