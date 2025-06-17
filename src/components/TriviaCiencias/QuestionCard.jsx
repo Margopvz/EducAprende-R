@@ -1,10 +1,11 @@
 // File: src/pages/QuestionCard.jsx
 import React from 'react';
+import PropTypes from 'prop-types';
 import './QuestionCard.css';
 
 export default function QuestionCard({ pregunta, opciones, respuestaCorrecta, imagen, onSelect, seleccion }) {
   return (
-    <div className="card">
+    <div className="card questionCard">
       {imagen && <img src={imagen} alt="ilustración" className="imagen-pregunta" />}
       <p className="pregunta">{pregunta}</p>
       <div className="opciones">
