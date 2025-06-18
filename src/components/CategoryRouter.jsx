@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
-import TimeLGame from "./TimeLGame/TimeLGame";
-import WordleGame from "./WordleGame/WordleGame"
-import SopaDeLetras from "./SopaDeLetras/sopaDeLetras";
-import TriviaCiencias from "./TriviaCiencias/TriviaCiencias";
-import MathGame from './MathGame/MathGame';
+import TimeLGame from "./Games/TimeLGame/TimeLGame";
+import WordleGame from "./Games/WordleGame/WordleGame";
+import SopaDeLetras from "./Games/SopaDeLetras/SopaDeLetras";
+import TriviaCiencias from "./Games/TriviaCiencias/TriviaCiencias";
+import MathGame from './Games/MathGame/MathGame';
 
 const CategoryRouter = () => {
   const { asignatura } = useParams();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './MathGame.css'
-import { generateExpression, evaluateExpression, formatTime } from '../../Data/mathGame';
+import { generateExpression, evaluateExpression, formatTime } from '../../../Data/mathGame';
 
 
 export default function MathGame() {

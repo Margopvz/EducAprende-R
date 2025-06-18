@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './WordleGame.css';
-import {palabras5Letras} from '../../Data/wordle'
-import ModalResultado from '../ModalResultado/ModalResultado';
+import {palabras5Letras} from '../../../Data/wordle'
+import ModalResultado from '../../ModalResultado/ModalResultado';
 
 
 

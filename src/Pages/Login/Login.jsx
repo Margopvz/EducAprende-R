@@ -1,6 +1,6 @@
 import {useState, useContext} from 'react'
 import { useForm } from 'react-hook-form';
-import { AuthContext } from "../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext";
 import { Link } from "react-router";
 import './Login.css'
 

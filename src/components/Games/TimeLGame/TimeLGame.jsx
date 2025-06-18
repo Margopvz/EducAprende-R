@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './TimeLGame.css';
 import confetti from 'canvas-confetti';
-import { timelinePairs } from '../../Data/timelineData'; 
-import correctMP3 from '../../assets/sounds/correct.mp3';
-import wrongMP3 from '../../assets/sounds/wrong.mp3'; 
-import successMP3 from '../../assets/sounds/success.mp3';
+import { timelinePairs } from '../../../Data/timelineData'; 
+import correctMP3 from '../../../assets/sounds/correct.mp3';
+import wrongMP3 from '../../../assets/sounds/wrong.mp3'; 
+import successMP3 from '../../../assets/sounds/success.mp3';
 
 const TimeLGame = () => {
   const [leftItems, setLeftItems] = useState([]);

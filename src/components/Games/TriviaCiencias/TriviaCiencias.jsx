@@ -1,6 +1,6 @@
 /* TriviaCiencias.jsx */
 import React, { useState, useEffect, useRef } from 'react';
-import preguntas from '../../Data/preguntasCiencias';
+import preguntas from '../../../Data/preguntasCiencias';
 import QuestionCard from './QuestionCard'; // ruta correcta según tu proyecto
 import './TriviaCiencias.css';
 
