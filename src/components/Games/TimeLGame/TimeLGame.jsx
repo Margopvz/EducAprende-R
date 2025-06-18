@@ -1,17 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './TimeLGame.css';
 import confetti from 'canvas-confetti';
-<<<<<<< HEAD:src/components/TimeLGame/TimeLGame.jsx
-import { levels } from '../../Data/timelineData'; 
-import correctMP3 from '../../assets/sounds/correct.mp3';
-import wrongMP3 from '../../assets/sounds/wrong.mp3'; 
-import successMP3 from '../../assets/sounds/success.mp3';
-=======
-import { timelinePairs } from '../../../Data/timelineData'; 
+import { levels } from '../../../Data/timelineData'; 
 import correctMP3 from '../../../assets/sounds/correct.mp3';
 import wrongMP3 from '../../../assets/sounds/wrong.mp3'; 
 import successMP3 from '../../../assets/sounds/success.mp3';
->>>>>>> acc5304d933f17e36e2eba3dafcb64ca70fd397a:src/components/Games/TimeLGame/TimeLGame.jsx
 
 const TimeLGame = () => {
   const levelKeys = Object.keys(levels);
