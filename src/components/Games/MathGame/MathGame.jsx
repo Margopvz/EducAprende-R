@@ -1,16 +1,40 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import './MathGame.css'
 import { generateExpression, evaluateExpression, formatTime } from '../../../Data/mathGame';
+import useSesionJuego from '../../../hooks/useSesionJuego';
 
 
 export default function MathGame() {
   const [expression, setExpression] = useState(generateExpression());
   const [userAnswer, setUserAnswer] = useState('');
   const [score, setScore] = useState(0);
-  const [timeLeft, setTimeLeft] = useState(180); // 3 minutos
+  const [attempt, setAttempt] = useState(0);
+  const [timeLeft, setTimeLeft] = useState(15); // 3 minutos
+
+    const {
+    guardarSesion
+  } = useSesionJuego("matematicas");
+
+  const terminarJuego = () => {
+    guardarSesion({
+      nuevoIntento: attempt,
+      nuevoAcierto: score
+    });
+
+    console.log(score)
+    console.log(attempt)
+    if (score >= 3) {
+      console.log("más de 3 aciertos!")
+    }
+
+  };
+
 
   useEffect(() => {
-    if (timeLeft <= 0) return;
+    if (timeLeft <= 0) {
+      terminarJuego(); 
+      return;
+    }
     const timer = setInterval(() => {
       setTimeLeft(prev => prev - 1);
     }, 1000);
@@ -20,12 +44,18 @@ export default function MathGame() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const correct = evaluateExpression(expression);
+    setAttempt(attempt+1)
     if (correct !== null && parseFloat(userAnswer).toFixed(2) === correct.toFixed(2)) {
       setScore(prev => prev + 1);
+      
     }
     setUserAnswer('');
     setExpression(generateExpression());
   };
+
+
+ 
+
 
   return (
     <div className="math-container">
