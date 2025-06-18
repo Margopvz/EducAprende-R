@@ -3,7 +3,7 @@ import  './Header.css'
 function Header() {
 return (
 
-    <header className="container-fluid  coiny-title" id="header">
+    <header className="container-fluid  coiny-title mt-3" id="header">
         <div className="row">
             <div className="col-12 col-md-6 text-center text-header header-text">
                 <div id='index-tittle'>

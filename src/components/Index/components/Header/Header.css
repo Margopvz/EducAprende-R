@@ -90,6 +90,6 @@ font-size: 5rem;
 @media (width>=768px){
 .header-btn{
   width: 25%;
-  
+  height: 4vw;
 }
 }

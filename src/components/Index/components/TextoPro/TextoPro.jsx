@@ -1,8 +1,8 @@
 import  './TextoPro.css'
 function TextoPro() {
 return (
-    <div className="container-fluid diferenciadores text-white pt-3">
-        <h3 className="text-center coiny-title text-white">¿Por qué elegir EducAprende?</h3>
+    <div className="container-fluid diferenciadores text-white">
+        <h3 className="text-center coiny-title text-white m-lg-5 m-4">¿Por qué elegir EducAprende?</h3>
             <div className="container">
                 <p className="textPro-intro">EducAprende es una plataforma educativa que combina gamificación, pedagogía basada en evidencia y tecnología avanzada para hacer del aprendizaje una experiencia atractiva, personalizada y efectiva. Ofrece:</p>
 
