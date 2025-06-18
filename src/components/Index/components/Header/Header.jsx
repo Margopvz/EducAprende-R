@@ -1,4 +1,5 @@
 import  './Header.css'
+import { Link } from "react-router";
 
 function Header() {
 return (
@@ -18,7 +19,7 @@ return (
             </div>
         </div>
         <div>
-            <button type="button" className="btn btn-warning btn-lg mt-4 mt-sm-2 header-btn">¡Juega Ahora!</button>
+            <Link to={`/categorias`}><button type="button" className="btn btn-warning btn-lg mt-4 mt-sm-2 header-btn">¡Juega Ahora!</button></Link>
         </div>
     </header>
 )
