@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './Register.css'
+import api from "../../services/api";
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -18,32 +19,20 @@ const Register = () => {
     password: data.newPassword
     };
 
-    console.log(payload)
   
 
     try {
-      const response = await fetch('http://localhost:3000/registro', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
+      await api.post("/registro", payload);
+      setSuccessMessage('✅ ¡Registro exitoso! Serás redirigida al login...');
+      reset(); // limpia el formulario
 
-      const result = await response.json();
-
-      if (response.ok) {
-          setSuccessMessage('✅ ¡Registro exitoso! Serás redirigida al login...');
-          reset(); // limpia el formulario
-
-          // redirige después de 2 segundos
-          setTimeout(() => {
-            navigate('/login');
-          }, 2000);
-        } else {
-          alert(result.message || '❌ Error al registrar');
-        }
+      // redirige después de 2 segundos
+      setTimeout(() => {
+        navigate('/login');
+      }, 2000);
     } catch (error) {
       console.error(error);
-      alert('❌ Error de conexión');
+      alert(result.message || '❌ Error al registrar');
     }
   }
 

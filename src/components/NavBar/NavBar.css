@@ -33,6 +33,10 @@
     color: #ffffff;
 }
 
+.user-icon .fa-solid{
+    font-size: 90%;
+}
+
 .nav-link:focus{
     color: #ffffff;
 }
