@@ -39,3 +39,19 @@ button {
   margin: 15px 0;
   font-size: 1.2rem;
 }
+alert {
+  background-color: #ff4d4d;
+  color: white;
+  border: 3px dashed yellow;
+  border-radius: 10px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

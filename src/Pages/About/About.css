@@ -1,3 +1,9 @@
+#aboutUs-tittle{
+  background-color: #7A56D0 ;
+  width: fit-content;
+  border-radius: 20px;
+  color: white;
+}
 .developers-container {
   
   display: flex;
@@ -11,7 +17,6 @@ h2 {
     font-family: "Coiny", system-ui;
     font-weight: 400;
     font-style: normal;
-    color: black;
 }
 
 /* desde los 992 pixeles, la clase .developers-container se le aplica un align-self: center*/
