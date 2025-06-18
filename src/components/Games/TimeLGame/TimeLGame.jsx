@@ -1,29 +1,34 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './TimeLGame.css';
 import confetti from 'canvas-confetti';
-import { timelinePairs } from '../../../Data/timelineData'; 
+import { levels } from '../../../Data/timelineData'; 
 import correctMP3 from '../../../assets/sounds/correct.mp3';
 import wrongMP3 from '../../../assets/sounds/wrong.mp3'; 
 import successMP3 from '../../../assets/sounds/success.mp3';
 
 const TimeLGame = () => {
+  const levelKeys = Object.keys(levels);
+  const [currentLevelIndex, setCurrentLevelIndex] = useState(0);
   const [leftItems, setLeftItems] = useState([]);
   const [rightItems, setRightItems] = useState([]);
   const [matches, setMatches] = useState({});
   const [selectedLeft, setSelectedLeft] = useState(null);
   const [score, setScore] = useState(0);
-  const [lives, setLives] = useState(3);
-  const [timeLeft, setTimeLeft] = useState(300);
+  const [lives, setLives] = useState(5);
+  const [timeLeft, setTimeLeft] = useState(600);
   const [gameStarted, setGameStarted] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [gameWon, setGameWon] = useState(false);
   const [showTryAgain, setShowTryAgain] = useState(false);
   const [soundEnabled, setSoundEnabled] = useState(true);
+  const [answerHistory, setAnswerHistory] = useState([]);
   const intervalRef = useRef(null);
 
   const correctSound = useRef(new Audio(correctMP3));
   const wrongSound = useRef(new Audio(wrongMP3));
   const successSound = useRef(new Audio(successMP3));
+
+  const currentPairs = levels[levelKeys[currentLevelIndex]];
 
   useEffect(() => {
     if (gameStarted && !gameOver) {
@@ -43,7 +48,7 @@ const TimeLGame = () => {
   }, [gameStarted, gameOver]);
 
   useEffect(() => {
-    if (Object.keys(matches).length === timelinePairs.length) {
+    if (Object.keys(matches).length === currentPairs.length) {
       clearInterval(intervalRef.current);
       setGameWon(true);
       setGameOver(true);
@@ -59,13 +64,13 @@ const TimeLGame = () => {
   const shuffleArray = array => [...array].sort(() => Math.random() - 0.5);
 
   const startGame = () => {
-    setLeftItems(shuffleArray(timelinePairs));
-    setRightItems(shuffleArray(timelinePairs.map(item => item.date)));
+    setLeftItems(shuffleArray(currentPairs));
+    setRightItems(shuffleArray(currentPairs.map(item => item.date)));
     setMatches({});
     setSelectedLeft(null);
     setScore(0);
-    setLives(3);
-    setTimeLeft(300);
+    setLives(5);
+    setTimeLeft(600);
     setGameOver(false);
     setGameWon(false);
     setGameStarted(true);
@@ -73,6 +78,13 @@ const TimeLGame = () => {
   };
 
   const restartGame = () => startGame();
+
+  const nextLevel = () => {
+    if (currentLevelIndex < levelKeys.length - 1) {
+      setCurrentLevelIndex(currentLevelIndex + 1);
+      setGameStarted(false);
+    }
+  };
 
   const handleLeftClick = id => {
     if (gameOver) return;
@@ -84,6 +96,11 @@ const TimeLGame = () => {
 
     const selectedEvent = leftItems.find(item => item.id === selectedLeft);
     if (selectedEvent.date === date) {
+      setAnswerHistory(prev => [...prev, { 
+        question: selectedEvent.event,
+        answer: date,
+        correct: selectedEvent.date === date
+      }]);
       setMatches(prev => ({ ...prev, [selectedLeft]: date }));
       setScore(prev => prev + 100);
       if (soundEnabled) correctSound.current.play();
@@ -117,7 +134,7 @@ const TimeLGame = () => {
       <div className="header">
         <h2>
           <i className={`bi ${soundEnabled ? 'bi-volume-up-fill' : 'bi-volume-mute-fill'} mx-2`} onClick={toggleSound} />
-          Historiconexión: Nivel 1
+          Historiconexión: Nivel {currentLevelIndex + 1}
         </h2>
         <div className="info-bar">
           <span> 🏆 Puntaje: {score}</span>
@@ -134,7 +151,6 @@ const TimeLGame = () => {
         </div>
       ) : (
         <div className="game-board">
-          {/* Columna de eventos */}
           <div className="column events">
             {leftItems.map(item => (
               <div
@@ -151,7 +167,6 @@ const TimeLGame = () => {
             ))}
           </div>
 
-          {/* Columna de fechas */}
           <div className="column years">
             {rightItems.map((date, index) => {
               const isMatched = Object.values(matches).includes(date);
@@ -172,13 +187,32 @@ const TimeLGame = () => {
       {gameOver && (
         <div className="end-message-box text-center mt-4">
           {gameWon ? (
-            <h3 className="text-dark">🥳 ¡Felicidades! Pasaste al segundo nivel 🥳</h3>
+            <>
+              <h3 className="text-dark">🥳 ¡Felicidades! Nivel completado 🥳</h3>
+              {currentLevelIndex < levelKeys.length - 1 && (
+                <button className="btn btn-success mt-2" onClick={nextLevel}>
+                  Continuar al siguiente nivel
+                </button>
+              )}
+            </>
           ) : (
             <h3 className="text-white">¡Se acabó el tiempo! 🙁</h3>
           )}
           <button className="btn btn-warning mt-2 restart-button" onClick={restartGame}>
-            Reiniciar Juego
+            Reiniciar Nivel
           </button>
+          {answerHistory.length > 0 && (
+            <div className="history-box mt-4 text-start">
+              <h5 className="text-dark">📜 Historial de respuestas:</h5>
+              <ul className="list-group">
+                {answerHistory.map((item, idx) => (
+                  <li key={idx} className={`list-group-item ${item.correct ? 'text-success' : 'text-danger'}`}>
+                    {item.correct ? '✅' : '❌'} <strong>{item.question}</strong> → {item.answer}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           {showTryAgain && !gameWon && (
             <p className="mt-3 fs-5">🤩 Vuelve a intentarlo 🤩</p>
           )}
