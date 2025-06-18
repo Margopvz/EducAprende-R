@@ -16,11 +16,28 @@
 }
 
 
-
 @media (max-width: 768px) {
 .aboutUs p{
     font-size: 0.8rem;
 }
 
 }
+.aboutUs-tittle{
+    width: fit-content;
+    
+}
+.container-aboutUs{
+    justify-content: center;
+}
+.index-img-developers{
+    margin-top: -3.5em;
+    
+}
 
+#main-tittle{
+    justify-items: center;
+}
+
+#index-main-img{
+    height: fit-content;
+}
