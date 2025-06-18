@@ -12,7 +12,32 @@ const userSchema = new Schema({
         },
     password: { type: String,
                 required: true 
-            }
+            },
+    achievements: [
+         {
+        id: String, // references Achievement.id
+        date: { type: Date, default: Date.now }
+        }
+    ],
+    progresoPorAsignatura: {
+        matematicas: {
+            respuestasCorrectas: { type: Number, default: 0 },
+            totalIntentos: { type: Number, default: 0 }
+        },
+        historia: {
+            respuestasCorrectas: { type: Number, default: 0 },
+            totalIntentos: { type: Number, default: 0 }
+        },
+        ingles: {
+            respuestasCorrectas: { type: Number, default: 0 },
+            totalIntentos: { type: Number, default: 0 }
+        },
+        ciencias: {
+            respuestasCorrectas: { type: Number, default: 0 },
+            totalIntentos: { type: Number, default: 0 }
+        }
+    },
+
 }, {
     timestamps: true
 });
