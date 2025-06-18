@@ -64,7 +64,7 @@
 .icon-grid {
   display: flex;
   flex-direction: row;
-  overflow-x: auto;
+  overflow: visible !important;
   white-space: nowrap;
   gap: 1rem;
   padding-bottom: 1rem;
@@ -85,6 +85,38 @@
   transform: scale(1.05);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+.logro-wrapper {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.logro-wrapper .tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #7a55d0;
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: normal;
+  font-size: 0.85rem;
+  z-index: 10;
+  width: max-content;
+  max-width: 180px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.logro-wrapper:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
 
 @media (min-width: 768px) {
   .icon-grid img {

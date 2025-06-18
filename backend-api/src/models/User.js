@@ -15,7 +15,10 @@ const userSchema = new Schema({
             },
     achievements: [
          {
-        id: String, // references Achievement.id
+        id: {
+            type: String, // Usamos string porque tus logros tienen IDs como "math_3"
+            required: true
+        },
         date: { type: Date, default: Date.now }
         }
     ],

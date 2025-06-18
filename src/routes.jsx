@@ -10,6 +10,7 @@ import Progreso from './pages/Progreso/Progreso.jsx'
 import NotFound from './pages/NotFound/NotFound.jsx'
 import PrivateRoute from "./components/PrivateRoute";
 import AuthProvider from './context/AuthContext' 
+import { LogrosProvider } from './context/LogrosContext.jsx'
 import Layout from './pages/Layout.jsx'
 
 
@@ -20,7 +21,7 @@ export const router = createBrowserRouter(
     createRoutesFromElements(
         // un componente "Route" por cada ruta
         // un ruta que envuelve a otra rutas --> LAYOUT
-        <Route path="/" element={<AuthProvider><Layout /></AuthProvider>}>
+        <Route path="/" element={<AuthProvider><LogrosProvider><Layout /></LogrosProvider></AuthProvider>}>
             <Route path="/" element={<Index />} />
             <Route path="/categorias" element={<Categories />} />
             <Route path="/categorias/:asignatura" element={<CategoryRouter />} />

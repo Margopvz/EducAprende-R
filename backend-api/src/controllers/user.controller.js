@@ -17,7 +17,8 @@ const getUsers = async (req, res) => {
             data: {
                 id: user._id,
                 name: user.name,
-                email: user.email
+                email: user.email,
+                achievements: user.achievements
             }
         });
     } catch (error) {

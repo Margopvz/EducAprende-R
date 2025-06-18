@@ -1,9 +1,22 @@
 import { useEffect, useState, useContext } from 'react';
 import { AuthContext } from "../../context/AuthContext";
+import { useLogros } from '../../context/LogrosContext';
 import './Progreso.css';
 
 function Progreso() {
   const { user } = useContext(AuthContext); // suscritos al contexto para acceder a los datos del usuario
+  const { logros, fetchLogros } = useLogros(); //  ya está disponible desde el context
+  const logrosObtenidos = user?.achievements?.map(a => a.id) || [];
+  const porcentaje = logros.length > 0
+  ? Math.round((logrosObtenidos.length / logros.length) * 100)
+  : 0;
+  const primerosLogros = logros.slice(0, 4);
+  const segundosLogros = logros.slice(4, 8); // asegúrate de tener al menos 8 logros
+
+
+    useEffect(() => {
+      fetchLogros();
+  }, []);
 
   return (
     <main className="progreso-container">
@@ -18,19 +31,32 @@ function Progreso() {
           <span>Progreso</span>
         </div>
         <div className="progress-bar-bg">
-          <div className="progress-bar-fill" style={{ width: '0%' }}></div>
+          <div className="progress-bar-fill" style={{ width: `${porcentaje}%` }}></div>
         </div>
-        <p className="progress-text">0%</p>
+        <p className="progress-text">{porcentaje}%</p>
       </section>
 
-      {/* Recompensas */}
+     {/* Recompensas */}
       <section className="icon-section">
         <h3>Recompensas</h3>
         <div className="icon-grid">
-          <img src="/src/assets/img/Medallas.jpg" alt="Medalla" />
-          <img src="/src/assets/img/Moneda.jpg" alt="Moneda" />
-          <img src="/src/assets/img/Trofeo.jpg" alt="Trofeo" />
-          <img src="/src/assets/img/Candado.jpg" alt="Candado" />
+          {primerosLogros.map((logro, index) => {
+            const conseguido = logrosObtenidos.includes(logro.id);
+            return (
+            <>
+              <div className="logro-wrapper">
+                <img
+                  key={index}
+                  src={logro.image}
+                  alt={logro.name}
+                  title={logro.name}
+                  style={{ opacity: conseguido ? 1 : 0.4 }}
+                />
+                <div className="tooltip">{logro.description}</div>
+              </div>
+            </>
+            );
+          })}
         </div>
       </section>
 
@@ -38,12 +64,26 @@ function Progreso() {
       <section className="icon-section">
         <h3>Insignias</h3>
         <div className="icon-grid">
-          <img src="/src/assets/img/Sol.jpg" alt="Sol" />
-          <img src="/src/assets/img/Libro.jpg" alt="Libro" />
-          <img src="/src/assets/img/Ampolleta.jpg" alt="Ampolleta" />
-          <img src="/src/assets/img/Estrellas.jpg" alt="Estrellas" />
+          {segundosLogros.map((logro, index) => {
+            const conseguido = logrosObtenidos.includes(logro.id);
+            return (
+              <>
+              <div className="logro-wrapper">
+                <img
+                  key={index}
+                  src={logro.image}
+                  alt={logro.name}
+                  title={logro.name}
+                  style={{ opacity: conseguido ? 1 : 0.4 }}
+                />
+                <div className="tooltip">{logro.description}</div>
+              </div>
+              </>
+            );
+          })}
         </div>
       </section>
+
     </main>
   );
 }

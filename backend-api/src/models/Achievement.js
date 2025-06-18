@@ -1,12 +1,14 @@
-import mongoose from 'mongoose';
+const mongoose = require('mongoose');
+const { Schema, model } = mongoose;
 
-const achievementSchema = new mongoose.Schema({
+const achievementSchema = Schema({
   id: { type: String, unique: true },
   name: String,
   description: String,
   image: String,
   game: String, // e.g., "math"
+  requiredAciertos: Number,
   date: { type: Date, default: Date.now }
 });
 
-export default mongoose.model("Achievement", achievementSchema);
+module.exports = model('Achievement', achievementSchema);

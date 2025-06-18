@@ -1,9 +1,11 @@
-import { LOGROS } from '../../../src/Data/achievements.js'
-import User from '../models/User.js';
+const Achievement = require("../models/Achievement");
+const User = require("../models/User");
 
 const updateProgress = async (req, res) => {
-  const userId = req.user._id;
-  const { asignatura, aciertos, intentos, logrosDesbloqueados = [] } = req.body;
+  console.log('REQ.USER:', req.user); // ⬅️ Esto te dice si el middleware funcionó
+
+  const userId = req.userId;
+  const { asignatura, aciertos, intentos } = req.body;
 
   try {
     const user = await User.findById(userId);
@@ -19,31 +21,47 @@ const updateProgress = async (req, res) => {
     progreso.totalIntentos += intentos;
     user.progresoPorAsignatura[asignatura] = progreso;
 
-    // Agregar logros nuevos si no los tiene
-    logrosDesbloqueados.forEach(idLogro => {
-      const yaLoTiene = user.achievements.some(l => l.id === idLogro);
-      if (!yaLoTiene) {
-        const logroCompleto = LOGROS.find(l => l.id === idLogro);
-        if (logroCompleto) {
-          if (logroCompleto) {
-            user.achievements.push({
-              id: logroCompleto.id,
-              date: new Date()
-            });
-          }
-        }
+    // Buscar logros desde la base de datos
+    const logrosBD = await Achievement.find({ game: asignatura });
+    console.log(logrosBD)
+    const nuevosLogros = [];
+
+    for (const logro of logrosBD) {
+      const yaLoTiene = user.achievements.some(l => l.id === logro.id.toString());
+      const cumple =user.progresoPorAsignatura[asignatura].respuestasCorrectas >= logro.requiredAciertos;
+
+      if (!yaLoTiene && cumple) {
+        user.achievements.push({
+          id: logro.id,
+          date: new Date()
+        });
+        nuevosLogros.push(logro); // enviar al frontend
       }
-    });
+    }
 
     await user.save();
 
-    res.status(200).json({ mensaje: 'Progreso actualizado', user });
+    res.status(200).json({
+      mensaje: 'Progreso actualizado',
+      logrosDesbloqueados: nuevosLogros
+    });
   } catch (error) {
     console.error('Error al actualizar progreso:', error);
     res.status(500).json({ error: 'Error interno del servidor' });
   }
 };
 
+const getLogros = async (req, res) => {
+  try {
+    const logros = await Achievement.find();
+    res.status(200).json(logros);
+  } catch (error) {
+    console.error('Error al obtener logros:', error);
+    res.status(500).json({ error: 'Error al obtener logros' });
+  }
+};
+
 module.exports = {
   updateProgress,
-}
+  getLogros
+};

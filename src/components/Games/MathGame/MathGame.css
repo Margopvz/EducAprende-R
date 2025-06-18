@@ -14,6 +14,63 @@
   text-shadow: black;
 }
 
+.terminar-btn {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  padding: 8px 16px;
+  background-color: #7a56d0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.terminar-btn:hover {
+  background-color: #6644b8;
+}
+
+.logro-alert {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff8e1;
+  border: 2px solid #f4c542;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  animation: fadeIn 0.4s ease-in-out;
+  z-index: 9999;
+}
+
+.logro-alert img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logro-alert button {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  margin-left: auto;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .expression {
   font-size: 2rem;
   margin: 20px 0;
