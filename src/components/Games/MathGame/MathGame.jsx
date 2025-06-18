@@ -4,6 +4,8 @@ import { generateExpression, evaluateExpression, formatTime } from '../../../Dat
 
 
 export default function MathGame() {
+  const [showAlert, setShowAlert] = useState(false);
+  const [correctAnswer, setCorrectAnswer] = useState(null);
   const [expression, setExpression] = useState(generateExpression());
   const [userAnswer, setUserAnswer] = useState('');
   const [score, setScore] = useState(0);
@@ -22,17 +24,30 @@ export default function MathGame() {
     const correct = evaluateExpression(expression);
     if (correct !== null && parseFloat(userAnswer).toFixed(2) === correct.toFixed(2)) {
       setScore(prev => prev + 1);
+      setShowAlert(false); // Oculta alerta si estaba visible
+    } else {
+      setCorrectAnswer(correct);
+      setShowAlert(true);
     }
     setUserAnswer('');
     setExpression(generateExpression());
-  };
+};
+
 
   return (
     <div className="math-container">
       <h2>Juego de Matemáticas</h2>
       <div className="timer">⏰ {formatTime(timeLeft)}</div>
       <div className="expression">{expression}</div>
+      {showAlert && (
+      <div className="alert">
+        ❌ ¡Ups! La respuesta correcta era <strong>{correctAnswer}</strong>
 
+        🧮 Recuerda respetar el <strong>orden de las operaciones</strong>:
+
+        <em>Multiplicación (*) y División (/) van antes que Suma (+) y Resta (-)</em>
+      </div>
+)}
       {timeLeft > 0 ? (
         <form onSubmit={handleSubmit}>
           <input
@@ -53,3 +68,4 @@ export default function MathGame() {
     </div>
   );
 }
+ 

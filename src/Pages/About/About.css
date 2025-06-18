@@ -1,17 +1,22 @@
+#aboutUs-tittle{
+  background-color: #7A56D0 ;
+  width: fit-content;
+  border-radius: 20px;
+  color: white;
+}
 .developers-container {
-  
+
   display: flex;
   justify-content: start;
   padding-top: 50px;
   overflow: hidden;
   position: relative;
-  
+
 }
 h2 {
     font-family: "Coiny", system-ui;
     font-weight: 400;
     font-style: normal;
-    color: black;
 }
 
 /* desde los 992 pixeles, la clase .developers-container se le aplica un align-self: center*/
@@ -27,9 +32,9 @@ h2 {
 }
 /* positions */
 .fernanda{
-  
+
   z-index: 1;
-  
+
 }
 .diego{
 
@@ -39,11 +44,11 @@ h2 {
   z-index: 3;
 }
 .felipe{
-  
+
   z-index: 2;
 }
 .margarita{
-  
+
   z-index: 1;
 }
 
