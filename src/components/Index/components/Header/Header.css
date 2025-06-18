@@ -7,7 +7,6 @@ line-height: 0.8;
 
 h4.aprendiendo-title{
 color:#7A56D0;
-font-size: 2rem;
 line-height: 0.8;
 }
 
@@ -17,45 +16,46 @@ margin-top: 5rem;
 
 
 .jugando-txt {
-font-size: 4rem;
+font-size: 9rem;
 }
 
 .se-txt {
-font-size: 3rem;
+font-size: 5rem;
 }
 
 .aprendiendo-txt {
-font-size: 3.5rem;
+font-size: 7.5rem;
 }
 
 .gana-txt{
-font-size: 4rem;
+font-size: 8rem;
 }
 
 #header{
   background-color: #fffdfa89;
   width: 100%;
+  margin-bottom: 0;
 }
 
 
 @media (max-width: 768px) {
 .jugando-txt {
-font-size: 3rem;
+font-size: 4rem;
 }
 .se-txt {
-font-size: 2rem;
+font-size: 3rem;
 }
 
 .aprendiendo-txt{
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 
 .gana-txt {
-font-size: 3rem;
+font-size: 4rem;
 }
 
 .row .text-header{
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 p, header {
@@ -63,3 +63,33 @@ p, header {
 }
 }
 
+@media (width>=769px) and (width<=1550px){
+  .jugando-txt {
+font-size: 5rem;
+}
+
+.se-txt {
+font-size: 4rem;
+}
+
+.aprendiendo-txt {
+font-size: 4rem;
+}
+
+.gana-txt{
+font-size: 5rem;
+}
+}
+
+.header-img{
+  align-content: center;
+}
+.header-text{
+  align-content: center;
+}
+@media (width>=768px){
+.header-btn{
+  width: 25%;
+  
+}
+}

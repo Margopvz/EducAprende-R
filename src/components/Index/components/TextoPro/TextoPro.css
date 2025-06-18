@@ -1,11 +1,10 @@
 
 .diferenciadores{
 background-color: #81F0EF;
-
 }
 
 .diferenciadores .container{
-width: 65%;
+width: 90%;
 }
 
 .diferenciadores p{
@@ -15,11 +14,11 @@ font-weight: bold;
 margin: 15px;
 border-radius: 10px;
 padding: 10px;
+text-shadow: 0px 0px black;
 }
 
 .diferenciadores p:hover{
 background-color: #7a56d0;
 transition: ease-in-out 0.3s;
 scale: 1.05;
-
 }
