@@ -8,7 +8,7 @@ function About() {
       }, []);
   return (
     <>
-    <header className="container-fluid">
+    <header className="container-fluid mt-3" id='aboutUs-tittle'>
       <h2 className="text-center my-4">Nosotros</h2>
     </header>
     <main className="container-fluid">
