@@ -55,6 +55,14 @@ body, .timeline-game {
   margin-top: 40px;
 }
 
+.history-box {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
 .game-board {
   display: flex;
   justify-content: center;
